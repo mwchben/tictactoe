@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
         android:background="@drawable/blue_button"
+        android:onClick="playButtonClicked"
         android:text="@string/play_button"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
