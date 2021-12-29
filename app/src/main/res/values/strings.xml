@@ -2,4 +2,9 @@
     <string name="app_name">tictactoe</string>
     <string name="home_title">Tic-Tac-Toe Game</string>
     <string name="play_button">Play</string>
+    <string name="player_titles">Enter Names 🙂 </string>
+    <string name="label_1">Play One</string>
+    <string name="label_2">Player Two</string>
+    <string name="submit">Submit ✔ </string>
+    <string name="name_hint">Enter your Name</string>
 </resources>
