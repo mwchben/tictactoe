@@ -7,4 +7,6 @@
     <string name="label_2">Player Two</string>
     <string name="submit">Submit ✔ </string>
     <string name="name_hint">Enter your Name</string>
+    <string name="play_again_button">Play Again</string>
+    <string name="return_button">Return</string>
 </resources>
