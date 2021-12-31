@@ -40,12 +40,14 @@
             android:id="@+id/button4"
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="@string/return_button"
-            android:background="@drawable/red_button"
             android:layout_marginStart="20dp"
+            android:background="@drawable/red_button"
+            android:onClick="returnButtonClicked"
+            android:text="@string/return_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UsingOnClickInXml" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
