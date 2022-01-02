@@ -61,6 +61,20 @@ public class TicTacToeBoard extends View {
     }
 
     private void drawGameBoard(Canvas canvas){
+        paintObject.setColor(board_color);
+        paintObject.setStrokeWidth(14);
 
+        //columns
+        for (int c=1;c<3;c++){
+            //(5 args) starting postn for x and y, end postn for x and y ,the paint obj
+            canvas.drawLine(cellSize*c, 0, cellSize*c, canvas.getWidth(), paintObject);
+        }
+        //rows
+        for (int r=1;r<3;r++){
+            canvas.drawLine(0, cellSize*r, canvas.getWidth(), cellSize*r, paintObject);
+        }
     }
 }
+
+
+//NB: the xmlns:custom="http://schemas.android.com/apk/res-auto" in gamePage allows us to use custom attributes for our tictactoe game
