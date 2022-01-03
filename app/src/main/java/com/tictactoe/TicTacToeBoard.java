@@ -91,6 +91,17 @@ public class TicTacToeBoard extends View {
             int row = (int) Math.ceil(y/cellSize);
             int col = (int) Math.ceil(x/cellSize);
 
+            if(game.updateGameBoard(row,col)){
+                invalidate(); //update the gameboard or otherwise halt till user taps a valid spot
+
+                //switch players by determining if its even of odd
+                if (game.getPlayer() % 2 == 0){ //it was prev player2's turn i.e 2/2 = mod 0
+                    game.setPlayer(game.getPlayer()-1); //so we neet it to be player1's turn hence player2(-1) = player 1
+                }else {
+                    game.setPlayer(game.getPlayer()+1);
+                }
+            }
+
             //redraws the game board hence running the onDraw method again
             invalidate();
             return true;
