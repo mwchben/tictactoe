@@ -3,7 +3,7 @@ package com.tictactoe;
 public class GameLogic {
     private int [][] gameBoard;
 
-    private int  player;
+    private int  player = 1;
 
 
     //constructor with a 2D array that  will populate with holding  postn values
