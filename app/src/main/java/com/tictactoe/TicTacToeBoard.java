@@ -22,10 +22,14 @@ public class TicTacToeBoard extends View {
     //
     private final Paint paintObject = new Paint();
 
+    private final GameLogic game;
+
     private int cellSize = getWidth()/3; //can be overridden with the onMeasure method .'.'. down below;
 
     public TicTacToeBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        game = new GameLogic();
 
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs,R.styleable.TicTacToeBoard,0,0);
         try {
@@ -86,10 +90,13 @@ public class TicTacToeBoard extends View {
         if (action == MotionEvent.ACTION_DOWN){
             int row = (int) Math.ceil(y/cellSize);
             int col = (int) Math.ceil(x/cellSize);
-        }
 
-        //redraws the game board hence running the onDraw method again
-        invalidate();
+            //redraws the game board hence running the onDraw method again
+            invalidate();
+            return true;
+        }
+        return false;
+
     }
 
     private void drawGameBoard(Canvas canvas){
@@ -109,6 +116,17 @@ public class TicTacToeBoard extends View {
 
     private  void  drawMarkers(Canvas canvas){
         //code that scans thru' the board n determine whether to pass in an X or O
+        for (int r=0;r<3;r++){
+            for (int c=0;c<3;c++){
+                if (game.getGameBoard()[r][c] != 0){
+                    if (game.getGameBoard()[r][c] == 1){
+                        drawX(canvas,r,c);
+                    }else {
+                        drawO(canvas,r,c);
+                    }
+                }
+            }
+        }
     }
 
     private void drawX(Canvas canvas, int row,int col){
