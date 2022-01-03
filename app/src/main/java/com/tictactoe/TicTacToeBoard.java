@@ -1,10 +1,12 @@
 package com.tictactoe;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -60,10 +62,34 @@ public class TicTacToeBoard extends View {
         drawGameBoard(canvas);
 
         //a method to draw the X
-        drawX(canvas, 1,1);
+        //drawX(canvas, 1,1);
 
         //a method to draw the O
-        drawO(canvas, 2,2);
+        //drawO(canvas, 2,2);
+
+        drawMarkers(canvas);
+
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public boolean onTouchEvent (MotionEvent event){
+        //grab the x and y postn of the users click
+        float x = event.getX();
+        float y = event.getY();
+
+        //get the fact that users actually typed on the game board
+        //calc the rows & colm of users tap in r/shn to ticTacToe board
+        int action = event.getAction();
+
+        //calc the rows & colm of users tap in r/shn to ticTacToe board
+        if (action == MotionEvent.ACTION_DOWN){
+            int row = (int) Math.ceil(y/cellSize);
+            int col = (int) Math.ceil(x/cellSize);
+        }
+
+        //redraws the game board hence running the onDraw method again
+        invalidate();
     }
 
     private void drawGameBoard(Canvas canvas){
@@ -80,6 +106,11 @@ public class TicTacToeBoard extends View {
             canvas.drawLine(0, cellSize*r, canvas.getWidth(), cellSize*r, paintObject);
         }
     }
+
+    private  void  drawMarkers(Canvas canvas){
+        //code that scans thru' the board n determine whether to pass in an X or O
+    }
+
     private void drawX(Canvas canvas, int row,int col){
         paintObject.setColor(X_color);
 
