@@ -1,5 +1,6 @@
 package com.tictactoe;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -41,6 +42,82 @@ public class GameLogic {
             return false;
         }
     }
+
+    public boolean checkForWinner() {
+
+        int boardFilled = 0; //if board if filled up for a tie i.e no winner
+        for (int r = 0; r < 3; r++) {
+            for (int c = 0; c < 3; c++) {
+                if (gameBoard[r][c] != 0) {
+                    boardFilled += 1; //increment boardFilled value by 1 each time it finds a non zero value
+                }
+            }
+        }
+
+
+            boolean isWinner = false;
+
+            //horizontal check
+            for (int r = 0; r < 3; r++) {
+                //r = whatever postn row is in and hardcode postn for col and also checks if the gameboard has no initial Os i.e user hasn't played yet
+                if (
+                        gameBoard[r][0] == gameBoard[r][1]
+                                && gameBoard[r][0] == gameBoard[r][2]
+                                && gameBoard[r][0] != 0
+                ) {
+                    isWinner = true;
+                }
+            }
+
+            //vertical check
+            for (int c = 0; c < 3; c++) {
+                //r = whatever postn col is in and hardcode postn for row and also checks if the gameboard has no initial Os i.e user hasn't played yet
+                if (
+                        gameBoard[0][c] == gameBoard[1][c]
+                                && gameBoard[2][c] == gameBoard[0][c]
+                                && gameBoard[0][c] != 0
+                ) {
+                    isWinner = true;
+                }
+            }
+
+            //negative (\) diagonal check
+            if (
+                    gameBoard[0][0] == gameBoard[1][1]
+                            && gameBoard[0][0] == gameBoard[2][2]
+                            && gameBoard[0][0] != 0
+            ) {
+                isWinner = true;
+            }
+
+            //positive (/) diagonal check
+            if (
+                    gameBoard[2][0] == gameBoard[1][1]
+                            && gameBoard[2][0] == gameBoard[0][2]
+                            && gameBoard[2][0] != 0
+            ) {
+                isWinner = true;
+            }
+
+
+            if (isWinner) {
+                //set our two btns to visible if game ends with winner
+                playAgainBTN.setVisibility(View.VISIBLE);
+                homeBTN.setVisibility(View.VISIBLE);
+
+                //who won?
+                playerTurn.setText((playerNames[player - 1] + "Has Won!"));
+                return true;
+            } else if (boardFilled == 9) {
+                playAgainBTN.setVisibility(View.VISIBLE);
+                homeBTN.setVisibility(View.VISIBLE);
+                playerTurn.setText("Tied!");
+                return true;
+            } else {
+                return false;
+            }
+    }
+
 
     public void resetGame(){
         for (int r=0;r<3;r++){

@@ -20,6 +20,10 @@ public class GamePage extends AppCompatActivity {
         Button playAgainBTN = findViewById(R.id.play_again); //check this on the setUpGame method in TicTacToeBoard.java
         Button homeBTN = findViewById(R.id.home_button); //check this on the setUpGame method in TicTacToeBoard.java
         TextView playerTurn = findViewById(R.id.player_display); //check this on the setUpGame method in TicTacToeBoard.java
+
+        playAgainBTN.setVisibility(View.GONE);
+        homeBTN.setVisibility(View.GONE);
+
         String[] playerNames = getIntent().getStringArrayExtra("PLAYER_NAMES"); //check this on the setUpGame method in TicTacToeBoard.java
 
         if (playerNames != null){
