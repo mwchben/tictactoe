@@ -1,7 +1,14 @@
 package com.tictactoe;
 
+import android.widget.Button;
+import android.widget.TextView;
+
 public class GameLogic {
     private int [][] gameBoard;
+    private String[] playerNames = {"Player One","Player Two"};
+    private Button playAgainBTN;
+    private Button homeBTN;
+    private TextView playerTurn;
 
     private int  player = 1;
 
@@ -21,6 +28,14 @@ public class GameLogic {
     public  boolean updateGameBoard(int row,int col){
         if (gameBoard[row-1][col-1]==0){
             gameBoard[row-1][col-1] = player;
+
+            if (player == 1){
+                playerTurn.setText((playerNames[1] + "'s turn"));
+            }
+            else {
+                playerTurn.setText((playerNames[0] + "'s turn"));
+            }
+
             return true;
         }else{
             return false;
@@ -35,6 +50,21 @@ public class GameLogic {
         }
     }
 
+    public void setPlayerNames(String[] playerNames) {
+        this.playerNames = playerNames;
+    }
+
+    public void setPlayAgainBTN(Button playAgainBTN) {
+        this.playAgainBTN = playAgainBTN;
+    }
+
+    public void setHomeBTN(Button homeBTN) {
+        this.homeBTN = homeBTN;
+    }
+
+    public void setPlayerTurn(TextView playerTurn) {
+        this.playerTurn = playerTurn;
+    }
 
     public int[][] getGameBoard() {
         return gameBoard;
