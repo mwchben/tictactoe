@@ -106,7 +106,7 @@ public class GameLogic {
                 homeBTN.setVisibility(View.VISIBLE);
 
                 //who won?
-                playerTurn.setText((playerNames[player - 1] + "Has Won!"));
+                playerTurn.setText((playerNames[player - 1] + " Has Won!"));
                 return true;
             } else if (boardFilled == 9) {
                 playAgainBTN.setVisibility(View.VISIBLE);
@@ -120,11 +120,16 @@ public class GameLogic {
 
 
     public void resetGame(){
+        //resets everything
         for (int r=0;r<3;r++){
             for (int c=0;c<3;c++){
                 gameBoard[r][c]=0;
             }
         }
+        player = 1;
+        playAgainBTN.setVisibility(View.GONE);
+        homeBTN.setVisibility(View.GONE);
+        playerTurn.setText((playerNames[0] + " Starts Again"));
     }
 
     public void setPlayerNames(String[] playerNames) {

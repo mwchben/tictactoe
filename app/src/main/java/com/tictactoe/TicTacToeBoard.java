@@ -21,6 +21,8 @@ public class TicTacToeBoard extends View {
     private final int O_color;
     private final int winning_line_color;
 
+    private boolean winningLine = false;
+
     //
     private final Paint paintObject = new Paint();
 
@@ -93,16 +95,23 @@ public class TicTacToeBoard extends View {
             int row = (int) Math.ceil(y/cellSize);
             int col = (int) Math.ceil(x/cellSize);
 
-            if(game.updateGameBoard(row,col)){
-                invalidate(); //update the gameboard or otherwise halt till user taps a valid spot
+            if(!winningLine){ //if there's no winner defined by the winning line
+                if(game.updateGameBoard(row,col)){
+                    invalidate(); //update the gameboard or otherwise halt till user taps a valid spot
 
-                //switch players by determining if its even of odd
-                if (game.getPlayer() % 2 == 0){ //it was prev player2's turn i.e 2/2 = mod 0
-                    game.setPlayer(game.getPlayer()-1); //so we neet it to be player1's turn hence player2(-1) = player 1
-                }else {
-                    game.setPlayer(game.getPlayer()+1);
+                    if (game.checkForWinner()){
+                        winningLine = true;
+                        invalidate();
+                    }
+                    //switch players by determining if its even of odd
+                    if (game.getPlayer() % 2 == 0){ //it was prev player2's turn i.e 2/2 = mod 0
+                        game.setPlayer(game.getPlayer()-1); //so we neet it to be player1's turn hence player2(-1) = player 1
+                    }else {
+                        game.setPlayer(game.getPlayer()+1);
+                    }
                 }
             }
+
 
             //redraws the game board hence running the onDraw method again
             invalidate();
@@ -183,6 +192,7 @@ public class TicTacToeBoard extends View {
 
     public void resetGame(){
         game.resetGame();
+        winningLine = false;
     }
 }
 
