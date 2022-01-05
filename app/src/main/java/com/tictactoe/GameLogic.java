@@ -27,6 +27,15 @@ public class GameLogic {
         }
     }
 
+    public void resetGame(){
+        for (int r=0;r<3;r++){
+            for (int c=0;c<3;c++){
+                gameBoard[r][c]=0;
+            }
+        }
+    }
+
+
     public int[][] getGameBoard() {
         return gameBoard;
     }

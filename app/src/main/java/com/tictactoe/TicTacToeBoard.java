@@ -170,6 +170,10 @@ public class TicTacToeBoard extends View {
                 paintObject
                 );
     }
+
+    public void resetGame(){
+        game.resetGame();
+    }
 }
 
 
