@@ -10,6 +10,8 @@ public class GameLogic {
     private int [] winType = {-1,-1,-1}; //row,col,lineType
 
     private String[] playerNames = {"Player One","Player Two"};
+
+
     private Button playAgainBTN;
     private Button homeBTN;
     private TextView playerTurn;
