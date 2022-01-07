@@ -182,6 +182,20 @@ public class TicTacToeBoard extends View {
                 );
     }
 
+    
+    private void drawHorizontalLine (Canvas canvas, int row, int col){
+        canvas.drawLine( col,row*cellSize + (float)cellSize/2, cellSize*3,row*cellSize+(float)cellSize/2,paintObject);
+    }
+    private void drawVerticalLine (Canvas canvas, int row, int col){
+        canvas.drawLine(col*cellSize+(float)cellSize/2,row, col*cellSize+(float)cellSize/2,cellSize*3,paintObject);
+    }
+    private void drawDiagPosLine (Canvas canvas){
+        canvas.drawLine(0,cellSize*3, cellSize*3,0,paintObject);
+    }
+    private void drawDiagNegLine (Canvas canvas){
+        canvas.drawLine(0,0, cellSize*3,cellSize*3,paintObject);
+    }
+
     //this method assigns all the values the game logic will need to set various views and update texts
     public void  setUpGame(Button playAgain, Button home, TextView playerDisplay, String[]names){
         game.setPlayAgainBTN(playAgain);
