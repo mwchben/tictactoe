@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 public class GameLogic {
     private int [][] gameBoard;
+
+    private int [] winType = {-1,-1,-1}; //row,col,lineType
+
     private String[] playerNames = {"Player One","Player Two"};
     private Button playAgainBTN;
     private Button homeBTN;
@@ -65,6 +68,7 @@ public class GameLogic {
                                 && gameBoard[r][0] == gameBoard[r][2]
                                 && gameBoard[r][0] != 0
                 ) {
+                    winType = new int[] {r,0,1}; //winType == 1
                     isWinner = true;
                 }
             }
@@ -77,6 +81,7 @@ public class GameLogic {
                                 && gameBoard[2][c] == gameBoard[0][c]
                                 && gameBoard[0][c] != 0
                 ) {
+                    winType = new int[] {0,c,2}; //winType == 2
                     isWinner = true;
                 }
             }
@@ -87,6 +92,7 @@ public class GameLogic {
                             && gameBoard[0][0] == gameBoard[2][2]
                             && gameBoard[0][0] != 0
             ) {
+                winType = new int[] {0,2,3}; //winType == 3
                 isWinner = true;
             }
 
@@ -96,6 +102,7 @@ public class GameLogic {
                             && gameBoard[2][0] == gameBoard[0][2]
                             && gameBoard[2][0] != 0
             ) {
+                winType = new int[] {2,2,4}; //winType == 4
                 isWinner = true;
             }
 
@@ -158,5 +165,9 @@ public class GameLogic {
 
     public int getPlayer() {
         return player;
+    }
+
+    public int[] getWinType() {
+        return winType;
     }
 }

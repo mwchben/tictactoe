@@ -77,6 +77,11 @@ public class TicTacToeBoard extends View {
 
         drawMarkers(canvas);
 
+        if (winningLine){
+            paintObject.setColor(winning_line_color);
+            drawWinningLine(canvas);
+        }
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -194,6 +199,27 @@ public class TicTacToeBoard extends View {
     }
     private void drawDiagNegLine (Canvas canvas){
         canvas.drawLine(0,0, cellSize*3,cellSize*3,paintObject);
+    }
+
+    private void drawWinningLine(Canvas canvas){
+        //extracts row and col from winType in GameLogic.java var and figures the line to draw
+        int row = game.getWinType()[0];
+        int col = game.getWinType()[1];
+
+        switch (game.getWinType()[3]){
+            case 1:
+                drawHorizontalLine(canvas,row,col);
+                break;
+            case 2:
+                drawVerticalLine(canvas,row,col);
+                break;
+            case 3:
+                drawDiagNegLine(canvas);
+                break;
+            case 4:
+                drawDiagPosLine(canvas);
+                break;
+        }
     }
 
     //this method assigns all the values the game logic will need to set various views and update texts
