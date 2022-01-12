@@ -119,7 +119,7 @@ public class TicTacToeBoard extends View {
 
 
             //redraws the game board hence running the onDraw method again
-            invalidate();
+            invalidate(); ////...........
             return true;
         }
         return false;
@@ -128,7 +128,7 @@ public class TicTacToeBoard extends View {
 
     private void drawGameBoard(Canvas canvas){
         paintObject.setColor(board_color);
-        paintObject.setStrokeWidth(14);
+        paintObject.setStrokeWidth(14); //................
 
         //columns
         for (int c=1;c<3;c++){
@@ -208,7 +208,7 @@ public class TicTacToeBoard extends View {
         int row = game.getWinType()[0];
         int col = game.getWinType()[1];
 
-        switch (game.getWinType()[3]){
+        switch (game.getWinType()[2]){
             case 1:
                 drawHorizontalLine(canvas,row,col);
                 break;

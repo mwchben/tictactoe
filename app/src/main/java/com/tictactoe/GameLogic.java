@@ -50,15 +50,6 @@ public class GameLogic {
 
     public boolean checkForWinner() {
 
-        int boardFilled = 0; //if board if filled up for a tie i.e no winner
-        for (int r = 0; r < 3; r++) {
-            for (int c = 0; c < 3; c++) {
-                if (gameBoard[r][c] != 0) {
-                    boardFilled += 1; //increment boardFilled value by 1 each time it finds a non zero value
-                }
-            }
-        }
-
 
             boolean isWinner = false;
 
@@ -108,6 +99,14 @@ public class GameLogic {
                 isWinner = true;
             }
 
+            int boardFilled = 0; //if board if filled up for a tie i.e no winner
+            for (int r = 0; r < 3; r++) {
+                for (int c = 0; c < 3; c++) {
+                    if (gameBoard[r][c] != 0) {
+                        boardFilled += 1; //increment boardFilled value by 1 each time it finds a non zero value
+                    }
+                }
+            }
 
             if (isWinner) {
                 //set our two btns to visible if game ends with winner
