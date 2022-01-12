@@ -119,12 +119,11 @@ public class GameLogic {
             } else if (boardFilled == 9) {
                 playAgainBTN.setVisibility(View.VISIBLE);
                 homeBTN.setVisibility(View.VISIBLE);
-                playerTurn.setText("Tied!");
+                playerTurn.setText("The game is Tied!");
                 return true;
-            } else {
-                return false;
             }
-    }
+            return false;
+        }
 
 
     public void resetGame(){
@@ -134,6 +133,11 @@ public class GameLogic {
                 gameBoard[r][c]=0;
             }
         }
+
+        winType[0] = -1;
+        winType[1] = -1;
+        winType[2] = -1;
+
         player = 1;
         playAgainBTN.setVisibility(View.GONE);
         homeBTN.setVisibility(View.GONE);
