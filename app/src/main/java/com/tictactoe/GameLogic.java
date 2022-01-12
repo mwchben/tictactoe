@@ -114,7 +114,7 @@ public class GameLogic {
                 homeBTN.setVisibility(View.VISIBLE);
 
                 //who won?
-                playerTurn.setText((playerNames[player - 1] + " Has Won!"));
+                playerTurn.setText((playerNames[player - 1] + " has Won!"));
                 return true;
             } else if (boardFilled == 9) {
                 playAgainBTN.setVisibility(View.VISIBLE);
@@ -141,7 +141,7 @@ public class GameLogic {
         player = 1;
         playAgainBTN.setVisibility(View.GONE);
         homeBTN.setVisibility(View.GONE);
-        playerTurn.setText((playerNames[0] + " Starts Again"));
+        playerTurn.setText((playerNames[0] + " starts Again"));
     }
 
     public void setPlayerNames(String[] playerNames) {
