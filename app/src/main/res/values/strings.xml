@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Benjamin Mwangi SCCJ/02147/2016</string>
+    <string name="app_name">Tic Tac Toe</string>
     <string name="home_title">Let\'s Play</string>
-    <string name="game_version">Tic Tac Toe</string>
+    <string name="game_version">v 1.0</string>
     <string name="play_button">Play</string>
-    <string name="player_titles">Enter Names 🙂 </string>
-    <string name="label_1">Play One</string>
-    <string name="label_2">Player Two</string>
-    <string name="submit">Submit </string>
+    <string name="player_titles">Enter Player Names </string>
+    <string name="label_1">First Player</string>
+    <string name="label_2">Second Player</string>
+    <string name="submit">Submit Names </string>
     <string name="name_hint">Enter your Name</string>
     <string name="play_again_button">Play Again</string>
     <string name="home_button">Home</string>
